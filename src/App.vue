@@ -20,8 +20,7 @@ name: 'App',
     Vehiculo,
   },
 
-    data() {
-        return {
+    data: () => ({
             tabla1: {
                 titulos: ["Opcion", "Marca", "Modelo", "Precio"],
                 vehiculo: [
@@ -84,9 +83,7 @@ name: 'App',
                     }
                 ]
             },
-        };
-
-    },
+        })
 };
 
 
