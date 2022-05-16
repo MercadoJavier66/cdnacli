@@ -1,19 +1,33 @@
 <template>
-<div>
-
-</div>
+    <div>
+        <table :class="estilos">
+            <thead >
+                <tr>
+                    <th v-for="(item, i) in titulos" :key="i" scope="col">{{ item }}</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="(unidad, u) in vehiculos" :key="u">
+                    <th>{{ u + 1 }}</th>
+                    <th>{{ unidad.marca }}</th>
+                    <th>{{ unidad.modelo }}</th>
+                    <th>{{ unidad.precio }}</th>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 
 </template>
 
 <script>
 export default {
-  name: 'Vehiculo',
+    name: 'Vehiculo',
     props:{
         titulos: {
             type: Array,
             required: true
         },
-        vehiculo:{
+        vehiculos:{
             type: Array,
             required: true
         },
@@ -24,86 +38,32 @@ export default {
 
     },
 };
-data:{
-      tabla1: {
-            titulos: ["Opcion", "Marca", "Modelo", "Precio"],
-            vehiculo [
-                {
-                    marca: 'Fiat',
-                    modelo: ' Uno Way',
-                    precio: 850000
-                },
-                {
-                    marca: 'Ford',
-                    modelo: 'Fiesta Kinetic',
-                    precio: 1750000
-                },
-                {
-                    marca: 'Volskwagen',
-                    modelo: 'Nivus',
-                    precio: 2600000
-                }
-
-            ]
-
-      };
-        tabla2: {
-            titulos: ['Opcion', 'Motor', 'Caja', 'Combustible'],
-            vehiculo [
-                {
-                    marca: 'Motor 1.4',
-                    modelo: '5 velocidades Manual',
-                    precio: 45 //combustible
-                },
-                {
-                    marca: 'Motor 1.6',
-                    modelo: '6 velocidades Automatica',
-                    precio: 52
-                },
-                {
-                    marca: 'Motor 1.0',
-                    modelo: '6 Velocidades Manual',
-                    precio: 55
-                }
-            ]
-        };
-        tabla3: {
-            titulos: ['Opcion', 'GPS', 'ABS', 'ESP'],
-            vehiculo [
-                {
-                    marca: 'No',
-                    modelo: 'Si',
-                    precio: 'No'
-                },
-                {
-                    marca: 'Si',
-                    modelo: 'Si',
-                    precio: 'No'
-                },
-                {
-                    marca: 'Si',
-                    modelo: 'Si',
-                    precio: 'Si'
-                }
-            ]
-        };
 
 </script>
 
-
 <style scoped>
-h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
+    .table-info{
+        width: 100%;
+        border: 1px solid #999;
+        text-align: left;
+        border-collapse: collapse;
+        margin: 0 0 1em 0;
+        border-color: black;
+    }
+
+    .table-info.green th{
+        background-color: rgb(221, 240, 221);
+    }
+    .table-info.blue th{
+        background-color: rgb(165, 187, 235);
+    }
+    .table-info.orange th{
+        background-color: rgb(238, 164, 133);
+
+    }
+
+    .table-info th{
+        text-align: center;
+        border: solid rgb(90, 90, 90) 1px;
+    }
 </style>
